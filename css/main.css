@@ -1,0 +1,7 @@
+body {
+	background-color: lightpink;
+};
+
+h1, body, h2, p {
+	font-size: 20px;
+}

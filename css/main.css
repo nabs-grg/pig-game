@@ -79,7 +79,7 @@ button {
 	top: 250px;
 }
 
-.dice {
+#dice {
 	position: relative;
 	left: 0;
 	height: 100px;

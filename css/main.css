@@ -14,7 +14,7 @@
 
 .container {
 	width: 1000px;
-	background: #ccc;
+	background: #f2f2f2;
 	position: absolute;
     top: 50%;
     left: 50%;
@@ -40,23 +40,40 @@ h1, h2, h3 {
 button {
 	width: 100px;
 	padding: 10px 20px;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+button:hover {
+	font-weight: 800;
+	
+}
+
+button:focus {
+	outline: none;
 }
 
 .player-panel-one {
 	float: left;
-	border: 2px solid black;
+	border: 2px solid #808080;
 	width: 350px;
 	height: 450px;
 	position: relative;
+	font-size: 30px;
+	text-align: center;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 	
 }
 
 .player-panel-two {
 	float: right;
-	border: 2px solid black;
+	border: 2px solid #808080;
 	width: 350px;
 	height: 450px;
 	position: relative;
+	font-size: 30px;
+	text-align: center;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 	
 }
 
@@ -70,20 +87,28 @@ button {
 .roll-dice {
 	position: relative;
 	left: 0;
-	top: 300px;
+	top: 280px;
 }
 
 .hold-score {
 	position: relative;
 	left: 105px;
-	top: 250px;
+	top: 225px;
 }
 
 #dice {
 	position: relative;
 	left: 0;
 	height: 100px;
-	top: 100px;
+	top: 90px;
+}
+
+.active {
+	font-size: 30px;
+	text-align: center;
+	color: #ff4d4d;
+	background-color: #bfbfbf;
+	text-transform: uppercase;
 }
 
 /*.box {

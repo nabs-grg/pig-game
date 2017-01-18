@@ -1,4 +1,4 @@
-var activePlayer, scoreOne, scoreTwo, roundScore, gamePlaying;
+var activePlayer, scoreOne, scoreTwo, roundScore, gamePlaying, previousScore;
 
 initNewGame();
 
@@ -12,7 +12,14 @@ document.querySelector('.roll-dice').addEventListener('click',function(){
 		console.log(diceScore);
 
 		//Check if dice score equal to 1, if its equal to one than the round score for the active player is equal to 0
-		if(diceScore !== 1){
+		//if the previous dice is equal to 6 and the current dice is 6 than the player's total score = 0
+		if(previousScore === 6 && diceScore === 6){
+
+			document.querySelector('#round-score-' + activePlayer ).innerHTML = 0;
+			document.querySelector('#total-score-' + activePlayer ).innerHTML = 0;
+			nextPlayer();
+
+		} else if(diceScore !== 1){
 
 			roundScore += diceScore ;
 			document.querySelector('#round-score-' + activePlayer ).innerHTML = roundScore;
@@ -22,8 +29,9 @@ document.querySelector('.roll-dice').addEventListener('click',function(){
 			nextPlayer();
 			
 		}
-	}
-	
+
+		previousScore = diceScore;
+	}	
 });
 
 /*
@@ -34,6 +42,7 @@ function nextPlayer(){
 
 	activePlayer === "one" ? activePlayer = "two" : activePlayer = "one";
 	roundScore = 0;
+	previousScore = 0;
 	document.getElementById('round-score-one').innerHTML = 0;
 	document.getElementById('round-score-two').innerHTML = 0;
 
@@ -101,6 +110,8 @@ function initNewGame(){
 	roundScore = 0;
 
 	gamePlaying = true;
+
+	previousScore = 0;
 
 	document.getElementById('total-score-one').innerHTML = 0;
 	document.getElementById('total-score-two').innerHTML = 0;

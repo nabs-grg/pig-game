@@ -15,6 +15,12 @@ document.querySelector('.roll-dice').addEventListener('click',function(){
 		//if the previous dice is equal to 6 and the current dice is 6 than the player's total score = 0
 		if(previousScore === 6 && diceScore === 6){
 
+			if(activePlayer === 'one'){
+				scoreOne = 0;
+			} else {
+				scoreTwo = 0;
+			}
+
 			document.querySelector('#round-score-' + activePlayer ).innerHTML = 0;
 			document.querySelector('#total-score-' + activePlayer ).innerHTML = 0;
 			nextPlayer();
@@ -54,7 +60,18 @@ function nextPlayer(){
 //button
 document.querySelector('.hold-score').addEventListener('click',function(){
 
+	var winningScore;
+
 	if(gamePlaying === true){
+
+		var inputScore = document.getElementById('winning-score').value;
+		console.log(inputScore);
+
+		if(inputScore){
+			winningScore = inputScore;
+		} else {
+			winningScore = 100;
+		}
 		//update final score using score array
 		if(activePlayer === 'one'){
 			
@@ -64,10 +81,11 @@ document.querySelector('.hold-score').addEventListener('click',function(){
 			document.getElementById('total-score-one').textContent = scoreOne;
 			
 			//check for winner if(score[activePlayer] >= 20) else continue
-			if(scoreOne >= 20){
+			if(scoreOne >= winningScore){
 				document.getElementById('player-name-one').textContent = 'Winner';
 	 			gamePlaying = false;
 			} else {
+				previousDice = 0;
 				nextPlayer();
 			}
 
@@ -79,17 +97,17 @@ document.querySelector('.hold-score').addEventListener('click',function(){
 			document.getElementById('total-score-two').textContent = scoreTwo;
 			
 			//check for winner if(score[activePlayer] >= 20) else continue
-			if(scoreTwo >= 20){
+			if(scoreTwo >= winningScore){
 				document.getElementById('player-name-two').textContent = 'Winner';
 				gamePlaying = false;
 			}else {
+				previousDice = 0;
 				nextPlayer();
 			}
 		}
 	}
 	
 });
-
 
 document.querySelector('.new-game').addEventListener('click',function(){
 	initNewGame();
@@ -126,22 +144,3 @@ function initNewGame(){
 
 	document.querySelector('.player-panel-one').classList.add('active');
 }
-
-/*
-function checkWinner(){
-	if(scoreOne >= 20){
-		document.getElementById('player-name-one').textContent = 'Winner';
-		//document.getElementById('total-score-one').textContent = 0;
-	} else {
-		nextPlayer();
-	}
-
-	if(scoreTwo >= 20){
-		document.getElementById('player-name-two').textContent = 'Winner';
-		//document.getElementById('total-score-two').textContent = 0;
-	}else {
-		nextPlayer();
-	}
-}
-
-*/

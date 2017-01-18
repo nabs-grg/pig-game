@@ -93,14 +93,28 @@ button:focus {
 .hold-score {
 	position: relative;
 	left: 105px;
-	top: 225px;
+	top: 280px;
+}
+
+#winning-score {
+	position: relative;
+	left: 6px;
+	top: 340px;
+	width: 85px;
+	height: 30px;
+	text-align: center;
+	font-size: 12px;
+}
+
+input[type=text]:focus {
+	outline: none;
 }
 
 #dice {
 	position: relative;
-	left: 0;
+	left: 105px;
 	height: 100px;
-	top: 90px;
+	top: 40px;
 }
 
 .active {

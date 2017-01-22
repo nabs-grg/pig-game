@@ -131,6 +131,10 @@ function initNewGame(){
 
 	previousScore = 0;
 
+	document.getElementById('winning-score').value = "";
+
+	document.getElementById("dice").src = "./img/dice-1.png";
+
 	document.getElementById('total-score-one').innerHTML = 0;
 	document.getElementById('total-score-two').innerHTML = 0;
 	document.getElementById('round-score-one').innerHTML = 0;
